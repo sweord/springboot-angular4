@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <button mat-button>
+    <mat-icon>home</mat-icon>
+    <span class="title">Admin Board</span>
+  </button>
+  <span class="spacer"></span>
+  <button mat-icon-button (click)="logout()">
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" opened="true" position="start">
+    <mat-nav-list>
+      <mat-list-item *ngFor="let product of productList;" (click)="onSelectProduct(product)">
+        <mat-icon matListIcon>{{selectProduct == product ? 'label' : 'label_outline'}}</mat-icon>
+        <span matLine>{{product}}</span>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <div class="content">
+    <mat-toolbar class="second-toolbar" color="primary">
+      <mat-icon>forward</mat-icon>
+      <span class="second-toolbar-title">{{selectProduct}}</span>
+    </mat-toolbar>
+    <div fxLayout="column nowrap" fxLayoutAlign="start start" class="main-frame">
+
+    </div>
+  </div>
+</mat-sidenav-container>

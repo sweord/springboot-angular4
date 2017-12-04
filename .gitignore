@@ -27,3 +27,4 @@ nbdist/
 
 ### mine ###
 src/main/resources/static/*
+/frontend/package-lock.json

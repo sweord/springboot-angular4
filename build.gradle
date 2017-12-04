@@ -19,7 +19,7 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'com.moowork.node'
 
 group = 'com.fj'
-version = '0.0.1-SNAPSHOT'
+version = '1.0'
 sourceCompatibility = 1.8
 
 repositories {
@@ -28,28 +28,36 @@ repositories {
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-jdbc')
+    compile('org.springframework.boot:spring-boot-starter-security')
+    compile('mysql:mysql-connector-java')
+    compile('com.alibaba:druid-spring-boot-starter')
+    compile('com.google.code.gson:gson')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
 node {
     version = "6.11.5"
-    download = true
+//    download = true
     nodeModulesDir = file("frontend")
 }
 
-task buildClientDev(type: NpmTask, dependsOn: 'npmInstall') {
+//task buildClientDev(type: NpmTask, dependsOn: 'npmInstall') {
+task buildClientDev(type: NpmTask) {
     group = 'build'
     description = 'Compile client side folder for development'
     args = ['run', 'buildDev']
 }
 
-task buildClient(type: NpmTask, dependsOn: 'npmInstall') {
+//task buildClient(type: NpmTask, dependsOn: 'npmInstall') {
+task buildClientProd(type: NpmTask) {
     group = 'build'
     description = "Compile client side folder for production"
-    args = ['run', 'build']
+    args = ['run', 'buildProd']
 }
 
-task buildClientWatch(type: NpmTask, dependsOn: 'npmInstall') {
+//task buildClientWatch(type: NpmTask, dependsOn: 'npmInstall') {
+task buildClientWatch(type: NpmTask) {
     group = 'application'
     description = "Build and watches the client side assets for rebuilding"
     args = ['run', 'buildWatch']

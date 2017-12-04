@@ -1,0 +1,18 @@
+<form (ngSubmit)="onLogin()" class="frame mat-elevation-z8" fxLayout="column nowrap" fxLayoutAlign="start center">
+  <h2 mat-dialog-title>Login</h2>
+  <mat-dialog-content fxLayout="column nowrap">
+    <mat-form-field>
+      <input matInput type="text" placeholder="Name" tabindex="1" [(ngModel)]="username"
+             [formControl]="nameInput">
+      <mat-error *ngIf="nameInput.hasError('required')">Empty error.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" placeholder="password" tabindex="2" [(ngModel)]="password"
+             [formControl]="passwordInput">
+      <mat-error *ngIf="passwordInput.hasError('required')">Empty error.</mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions class="actions" fxLayoutAlign="space-around center">
+    <button mat-raised-button color="primary" tabindex="3" type="submit">Login</button>
+  </mat-dialog-actions>
+</form>
