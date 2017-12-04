@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule, Routes} from '@angular/router';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
   MatButtonModule,
   MatCardModule,
@@ -24,8 +24,8 @@ import {
 
 import {AppComponent} from './app.component';
 import {HomeComponent} from './component/home/home.component';
-import {HttpClientModule} from "@angular/common/http";
-import {LoginComponent} from "./component/login/login.component";
+import {HttpClientModule} from '@angular/common/http';
+import {LoginComponent} from './component/login/login.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},

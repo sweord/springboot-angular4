@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl} from "@angular/forms";
-import {HttpClient} from "@angular/common/http";
-import {Router, ActivatedRoute} from "@angular/router";
-import {HttpHeaders} from "@angular/common/http";
-import {MatSnackBar} from "@angular/material/snack-bar";
+import {FormControl} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
+import {Router, ActivatedRoute} from '@angular/router';
+import {HttpHeaders} from '@angular/common/http';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -39,28 +39,28 @@ export class LoginComponent implements OnInit {
     const url = '/auth';
     // let data = {username: this.username, password: this.password };
     // let data = "username=" + this.username + "&password=" + this.password;
-    let params = new URLSearchParams();
+    const params = new URLSearchParams();
     params.set('username', this.username);
     params.set('password', this.password);
 
-    let header = {
+    const header = {
       headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
     };
 
     this.http.post(url, params.toString(), header).subscribe(
       data => {
         console.log(data);
-        if (data != null && data == 'success') {
-          this.router.navigateByUrl("/");
+        if (data != null && data === 'success') {
+          this.router.navigateByUrl('/');
         } else {
-          let snackBarRef = this.snackBar.open("Login failed. " + data, "CLOSE", {
+          const snackBarRef = this.snackBar.open('Login failed. ' + data, 'CLOSE', {
             duration: 3000
           });
           snackBarRef.onAction().subscribe();
         }
       },
       err => {
-        console.log("error: " + err.errorMsg);
+        console.log('error: ' + err.errorMsg);
       }
     );
   }
