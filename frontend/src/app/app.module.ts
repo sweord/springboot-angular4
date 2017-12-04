@@ -51,7 +51,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     FlexLayoutModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes, {enableTracing: false})
+    RouterModule.forRoot(appRoutes, {enableTracing: true})
   ],
   providers: [HttpClientModule, MatSnackBarModule],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-package com.fj.litchiadmin;
+package com.fj.springbootangular4;
 
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
